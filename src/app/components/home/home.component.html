@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+
+    <header>
+        <form>
+            <div class="d-flex justify-content-end">
+                <button (click)="Logout()" class="btn btn-danger">Cerrar sesión</button>
+            </div>
+        </form>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <form [formGroup]="formEmpleado" (ngSubmit)="RegisterEmpleado()">
+                    <div class="form-group">
+                        <label for="name">Nombre:</label>
+                        <input type="text" formControlName="nombre" class="form-control" id="nombre"
+                            placeholder="Ingresa el nombr del perfil.">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Apellido:</label>
+                        <input type="text" formControlName="apellido" class="form-control" id="apellido"
+                            placeholder="Ingresa el apellido.">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Fecha Nacimineto :</label>
+                        <input type="date" formControlName="fecha_nacimiento" class="form-control" id="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Cedula:</label>
+                        <input type="text" formControlName="cedula" class="form-control" id="cedula"
+                            placeholder="Ingresa la cedula del empleado.">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Rol:</label>
+
+                        <select class="form-control selectpicker" formControlName="rol">
+                            <option selected>SELECCIONE EL ROL</option>
+                            <option value="ADMINISTRADOR">ADMINISTRADOR</option>
+                            <option value="EMPLEADO">EMPLEADO</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Usuario:</label>
+                        <input type="text" formControlName="user_name" class="form-control" id="user_na,e"
+                            placeholder="Ingresa el usuario.">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Contraseña:</label>
+                        <input type="text" formControlName="password" class="form-control" id="Password"
+                            placeholder="Ingresa la contraseña.">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Agregar</button>
+                </form>
+            </div>
+            <div class="col-6">
+                <div class="card-columns">
+                    <div *ngFor="let empleado of empleados" class="card">
+                        <div class="card-border-top">
+                        </div>
+                        <div class="img">
+                            <img style="width: 60px;
+                            height: 70px;"
+                                src="https://media.licdn.com/dms/image/C4E0BAQEpeMx-p2saFQ/company-logo_200_200/0/1652536867115?e=1682553600&v=beta&t=Oq0E3c-YbO4DE8bx12w1dVKJtMupzpVSo1DmG_LLB40"
+                                alt="mi imagen">
+                        </div>
+                        <br />
+                        <span> {{empleado.nombre}}</span>
+                        <p class="job">Rol: {{empleado.rol}}</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

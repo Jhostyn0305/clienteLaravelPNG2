@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+
+
+    <br />
+    <div class="container custom-container-2">
+        <!-- Se muestra cuando no existen empleados -->
+        <div class="no-data text-center">
+            <button class="btn btn-outline-primary" (click)="insertEntrada()">Registrar Entrada</button>
+        </div>
+        <br />
+        <div class="no-data text-center">
+            <button class="btn btn-outline-danger" (click)="insertSalida()">Registrar Salida</button>
+        </div>
+        <br />
+        <!-- Tabla de empleados, se oculta cuando no existen registros -->
+
+        <h3 class="mb-3 text-center">Lista de Asistencias</h3>
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Id </th>
+                        <th scope="col">Acción</th>
+                        <th scope="col">Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let asistencia of asistencias">
+                        <td>{{asistencia.id}}</td>
+                        <td>{{asistencia.accion}}</td>
+                        <td>{{asistencia.fecha_ejecucion}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+
+</html>
